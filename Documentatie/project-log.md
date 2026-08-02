@@ -30,3 +30,9 @@ Een kleine AD enterprise omgeving bouwen met:
 - DC01: DHCP Scope geconfigureerd en geactiveerd. Range 192.168.100.100-150/24
 
 - CLIENT01: Client aan domein gejoined
+
+## 1-8-2026
+- AD_GebruikersnaamGenerator.py script aangemaakt en gepushed naar repository
+
+## 2-8-2026
+- AD_GebruikersnaamGenerator.py script gewijzigd
