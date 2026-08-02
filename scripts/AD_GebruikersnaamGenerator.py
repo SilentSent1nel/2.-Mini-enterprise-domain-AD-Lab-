@@ -1,13 +1,13 @@
 # Gemaakt door: Mirkan Yalçin
 
-
+# Start script, m.b.v. de libraries: faker en random
 from faker import Faker
 from faker.providers import internet
 import random
 
 fake = Faker("NL-nl")
 
-
+# Afdelingen en functies dictionary
 afdelingen = {
     "IT": [
         "Systeem beheerder",
@@ -80,6 +80,7 @@ afdelingen = {
     ]
 }
 
+# Statische verdeling aantal personeel per afdeling
 AfdelingsVerdeling = {
     "IT": 18,
     "HR": 37,
@@ -99,6 +100,9 @@ AfdelingsVerdeling = {
 # Genereer nummer beginnend met +31 6 en forceer altijd een nummer van 8 karakters na +31 6
 def werktelnummer():
     return("+31-6" + str(fake.random_number(digits=8, fix_len=True)))
+
+# Statistieken aantal medewerkers per afdeling
+# Hiermee zien we later met een print statement hoeveel personeel er op elk afdeling werkt
 
 aantalIT = 0
 aantalHR = 0
