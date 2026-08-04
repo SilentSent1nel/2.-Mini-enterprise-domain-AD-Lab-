@@ -6,7 +6,7 @@ import time
 print("AD Groepen generator")
 print("Ondersteunt het genereren van:\n1. Global Group - Security Group\n2. Domain Local Group - Security Group")
 print("\nDeze script is bedoeld voor hen die willen oefenen met Active Directory en/of zijn/haar portfolio\n willen aanvullen met allerlei projecten.\n")
-#time.sleep(0.75)
+time.sleep(0.75)
 
 
 
@@ -24,11 +24,11 @@ while True:
         GroepTypeKeuze = int(input("Keuze: "))
         print(f"Jouw keuze: {GroepTypeKeuze}")
         print("3...")
-        #time.sleep(1)
+        time.sleep(1)
         print("2...")
-        #time.sleep(1)
+        time.sleep(1)
         print("1...\n")
-        #time.sleep(1)
+        time.sleep(1)
         print("Hoeveel groepen wil je maken?")
         AantalGroepen = int(input("Voer enkel de aantal groepen in cijfers in dat je wilt maken: "))
         print(f"Aantal groepen dat gemaakt gaat worden: {AantalGroepen}")
@@ -41,30 +41,30 @@ while True:
     elif vraag_groep_keuze.lower() == "nee" or vraag_groep_keuze == "2":
         print("Geen probleem, denk eerst na over de groepen die je wilt maken. Programma wordt afgesloten in 5 seconden")
         print("5..")
-        #time.sleep(1)
+        time.sleep(1)
         print("4..")
-        #time.sleep(1)
+        time.sleep(1)
         print("3..")
-        #time.sleep(1)
+        time.sleep(1)
         print("2..")
-        #time.sleep(1)
+        time.sleep(1)
         print("1..")
-        #time.sleep(1)
+        time.sleep(1)
         break
         
     elif vraag_groep_keuze == "afsluiten".lower() or vraag_groep_keuze == "3":
         print("Programma wordt afgesloten binnen 5 seconden")
         print("5..")
-        #time.sleep(1)
+        time.sleep(1)
         print("4..")
-        #time.sleep(1)
+        time.sleep(1)
         print("3..")
-        #time.sleep(1)
+        time.sleep(1)
         print("2..")
-        #time.sleep(1)
+        time.sleep(1)
         print("1..")
-        #time.sleep(1)
-        break
+        time.sleep(1)
+        exit()
 
     else:
         print("Ongeldige invoer, je kunt enkel kiezen tussen:\n1. Ja\n2. Nee\n3. Afsluiten")
@@ -94,24 +94,24 @@ for groep in range (AantalGroepen):
 
 while True:
     print("Klopt dit?\n1. Ja, genereer CSV\n2. Nee, groep naam of beschrijving wijzigen\n3. Terug gaan\n")
-        #time.sleep(0.75)
+    time.sleep(0.75)
     BevestigingSamenvatting = input("Maak je keuze: ")
 
     if BevestigingSamenvatting == "1" or BevestigingSamenvatting.lower() == "ja":
         print("CSV genereren.")
-        #time.sleep(0.5)
+        time.sleep(0.5)
         print("CSV genereren..")
-        #time.sleep(0.5)
+        time.sleep(0.5)
         print("CSV genereren...")
-        #time.sleep(0.5)
+        time.sleep(0.5)
         print("CSV genereren....")
-        #time.sleep(0.5)
+        time.sleep(0.5)
         print("CSV genereren.....")
-        #time.sleep(0.5)
+        time.sleep(0.5)
         print("CSV genereren......")
-        #time.sleep(0.5)
+        time.sleep(0.5)
         print("CSV genereren.......")
-        #time.sleep(0.5)
+        time.sleep(0.5)
         print("CSV gegenereerd!")
         break
 
@@ -161,17 +161,3 @@ while True:
 
     elif GroepWijzigingMenuKeuze == "3":
         print("Terug naar hoofdmenu...\n")
-
-
-
-            
-
-    # else:
-    #     break
-
-
-
-# with open("groepen.csv", "a") as bestand:
-#     line = bestand.readlines()
-#     bestand.write("Name,Description,GroupScope,GroupCategory")
-#     bestand.write()
