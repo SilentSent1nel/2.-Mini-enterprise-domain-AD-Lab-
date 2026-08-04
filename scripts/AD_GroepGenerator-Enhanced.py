@@ -12,7 +12,6 @@ def welkomscherm():
     print("AD Groepen generator")
     print("Ondersteunt het genereren van:\n- Global Group - Security Group\n- Domain Local Group - Security Group")
     print("\nDeze script is bedoeld voor hen die willen oefenen met Active Directory en/of zijn/haar portfolio\n willen aanvullen met allerlei projecten.\n")
-    #time.sleep(0.75)
 
 def hoofdmenu():
     print("Hoofdmenu:\n1. Groepen maken\n2. Groep attributen (Naam of beschrijving) wijzigen\n3. Samenvatting van je configuratie\n4. Configuratie exporteren naar CSV\n5. Afsluiten")
@@ -80,7 +79,6 @@ def GroepsConfigWijziging():
         OudeGroepNaam = groepen[GroepNaamWijzigingKeuze]["naam"]
         groepen[GroepNaamWijzigingKeuze]["naam"] = NieuweGroepNaam
         print("Groepnaam wijzigen....")
-        # time.sleep(1)
         print(f"Oude groepnaam: {OudeGroepNaam}\nNieuwe groepnaam: {groepen[GroepNaamWijzigingKeuze]["naam"]}")
 
     elif Keuze == 2:
@@ -92,7 +90,6 @@ def GroepsConfigWijziging():
         OudeGroepBeschrijving = groepen[GroepBeschrijvingWijzigingKeuze]["beschrijving"]
         groepen[GroepBeschrijvingWijzigingKeuze]["beschrijving"] = NieuweGroepBeschrijving
         print("Groepsbeschrijving wijzigen....")
-        # time.sleep(1)
         print(f"Oude groepsbeschrijving: {OudeGroepBeschrijving}\nNieuwe groepsbeschrijving: {groepen[GroepBeschrijvingWijzigingKeuze]["beschrijving"]}")
 
     elif Keuze == 3:
