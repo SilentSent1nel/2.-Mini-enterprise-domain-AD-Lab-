@@ -1,0 +1,25 @@
+cn,description,groupType
+GG_IT,Global Group voor afdeling IT,-2147483646
+GG_HR,Global Group voor afdeling HR,-2147483646
+GG_Financieel,Global Group voor afdeling Financieel,-2147483646
+GG_Sales,Global Group voor afdeling Sales,-2147483646
+GG_Marketing,Global Group voor afdeling Marketing,-2147483646
+GG_Management,Global Group voor afdeling Management,-2147483646
+GG_Operaties,Global Group voor afdeling Operaties,-2147483646
+GG_Ondersteuning,Global Group voor afdeling Ondersteuning,-2147483646
+GG_Juridisch,Global Group voor afdeling Juridisch,-2147483646
+GG_Logistiek,Global Group voor afdeling Logistiek,-2147483646
+GG_Administratie,Global Group voor afdeling Administratie,-2147483646
+GG_OnderzoekEnOntwikkeling,Global Group voor Afdeling Onderzoek en Ontwikkeling,-2147483646
+DL_IT,Domain Local Group voor afdeling IT,-2147483644
+DL_HR,Domain Local Group voor afdeling HR,-2147483644
+DL_Financieel,Domain Local Group voor afdeling Financieel,-2147483644
+DL_Sales,Domain Local Group voor afdeling Sales,-2147483644
+DL_Marketing,Domain Local Group voor afdeling Marketing,-2147483644
+DL_Management,Domain Local Group voor afdeling Management,-2147483644
+DL_Operaties,Domain Local Group voor afdeling Operaties,-2147483644
+DL_Ondersteuning,Domain Local Group voor afdeling Ondersteuning,-2147483644
+DL_Juridisch,Domain Local Group voor afdeling Juridisch,-2147483644
+DL_Logistiek,Domain Local Group voor afdeling Logistiek,-2147483644
+DL_Administratie,Domain Local Group voor afdeling Administratie,-2147483644
+DL_OnderzoekEnOntwikkeling,Domain Local Group voor afdeling Onderzoek en Ontwikkeling,-2147483644
