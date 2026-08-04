@@ -117,11 +117,17 @@ aantalLogistiek = 0
 aantalAdministratie = 0
 aantalOnderzoekOntwikkel = 0
 
-user_id = 1
+user_id = 0
+personeelsnummer = 0
+TeLangeGebruikersnamen = []
+gebruikers = []
 
 for afdeling, aantal in AfdelingsVerdeling.items():
     for _ in range(aantal):
         user_id += 1
+        personeelsnummer += 1
+        personeelsnummer_str = f"{personeelsnummer:06d}"
+
         voornaam = fake.first_name()
         achternaam = fake.last_name()
 
@@ -129,12 +135,10 @@ for afdeling, aantal in AfdelingsVerdeling.items():
         email = naam[:3].lower()+achternaam.replace(" ", "").lower()+"@bedrijf.local"
         gebruikersnaam = voornaam[:3].lower() + achternaam.replace(" ", "").lower()
 
-        telnr = fake.phone_number()
+        if len(gebruikersnaam) > 20:
+            TeLangeGebruikersnamen.append((user_id, gebruikersnaam))
 
-        # if nummer < 15:
-        #     afdeling = "IT"
-        # else:
-        #     afdeling = random.choice(list(afdelingen.keys()))
+        telnr = werktelnummer()
 
         if afdeling == "IT":
             aantalIT += 1
@@ -162,8 +166,26 @@ for afdeling, aantal in AfdelingsVerdeling.items():
             aantalOnderzoekOntwikkel += 1
 
         functie = random.choice(afdelingen[afdeling])
+        gebruikers.append(f"{personeelsnummer_str},{naam},{voornaam},{achternaam},{naam},{gebruikersnaam},{email},{telnr},{afdeling},{functie}")
 
-        print(f"{user_id},{naam},{email},{werktelnummer()},{gebruikersnaam},{afdeling},{functie}")
+        print(f"{user_id},{personeelsnummer_str},{naam},{email},{werktelnummer()},{gebruikersnaam},{afdeling},{functie}")
 
-print(f"\nAantal personeel per afdeling:\n-------------------------\nIT: {aantalIT}\nHR: {aantalHR}\nFinanciëel: {aantalFinan}\nSales: {aantalSales}\nMarketing: {aantalMarketing}\nOperaties: {aantalOperaties}\nOndersteuning {aantalOndersteuning}\nJuridisch: {aantalJuridisch}\nLogistiek: {aantalLogistiek}\nAdministratie: {aantalAdministratie}\nOnderzoek en Ontwikkeling: {aantalOnderzoekOntwikkel}\n-------------------------")
-print(f"Totaal aantal personeel: {sum(AfdelingsVerdeling.values())}\n-------------------------")
+
+
+print(f"\nAantal personeel per afdeling:\n-------------------------\nIT: {aantalIT}\nHR: {aantalHR}\nFinanciëel: {aantalFinan}\nSales: {aantalSales}\nMarketing: {aantalMarketing}\nOperaties: {aantalOperaties}\nOndersteuning {aantalOndersteuning}\nJuridisch: {aantalJuridisch}\nLogistiek: {aantalLogistiek}\nManagement: {aantalManagement}\nnAdministratie: {aantalAdministratie}\nOnderzoek en Ontwikkeling: {aantalOnderzoekOntwikkel}\n-------------------------")
+print(f"Totaal aantal personeel: {sum(AfdelingsVerdeling.values())}\n-------------------------\n")
+print(f"Gebruikers met gebruikersnamen langer dan 20 karaktets:")
+print("----------------------------------------")
+print(f"Totaal: {len(TeLangeGebruikersnamen)} gebruikers")
+for gebruiker in TeLangeGebruikersnamen:
+    print(f"Gebruiker {gebruiker[0]}: {gebruiker[1]} - Aantal karakters: {len(gebruiker[1])}")
+print("----------------------------------------")
+
+
+
+export_file_naam = input("Naam voor CSV bestand (ZONDER extensie, zoals example.csv),\ndit moet dus gewoon example heten: ")
+
+with open (export_file_naam + ".csv", "w", encoding="utf-8-sig") as bestand:
+    bestand.write("employeeID,cn,givenName,sn,displayName,sAMAccountName,userPrincipalName,telephoneNumber,department,title\n")
+    for gebruiker in gebruikers:
+        bestand.write(gebruiker + "\n")
