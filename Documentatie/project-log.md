@@ -41,5 +41,8 @@ Een kleine AD enterprise omgeving bouwen met:
 - AD_GroepGenerator.py aangemaakt
 
 ## 4-8-2026
-- AD_GroepGenerator.py wordt niet meer gebruikt, maar nog wel beschikbaar
+- AD_GroepGenerator.py wordt niet meer gebruikt, maar nog wel beschikbaar.
 - Enhanced versie van AD_GroepGenerator.py (AD_GroepGenerator-Enhanced.py) gemaakt.
+- GroepGenerator.ps1 gemaakt om de groepen middels een .csv te importeren.
+- 12 aangemaakte groepen in groepen.csv via powershell script geïmporteerd
+- 600+ gebruikers in gebruikers.csv via powershell script geïmporteerd
