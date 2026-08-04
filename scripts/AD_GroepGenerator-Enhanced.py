@@ -15,7 +15,7 @@ def welkomscherm():
     #time.sleep(0.75)
 
 def hoofdmenu():
-    print("Hoofdmenu:\n1. Groepen maken\n2. Groep attributen (Naam of beschrijving) wijzigen\n3. Samenvatting van je configuratie\n4. Afsluiten")
+    print("Hoofdmenu:\n1. Groepen maken\n2. Groep attributen (Naam of beschrijving) wijzigen\n3. Samenvatting van je configuratie\n4. Configuratie exporteren naar CSV\n5. Afsluiten")
     HM_Keuze = int(input("Keuze: "))
     return HM_Keuze
 
@@ -31,7 +31,20 @@ def groepconfiguratie_aanbod():
 
 def groepeninvoeren():
     global GroepNaamID
-    GroepTypeKeuze = int(input("Keuze: "))
+
+    while True:
+        GroepTypeKeuze = int(input("Keuze: "))
+
+        if GroepTypeKeuze == 1 or GroepTypeKeuze == 2:
+            break
+        else:
+            print("Ongeldige invoer! Kies 1 of 2")
+
+    if GroepTypeKeuze == 1:
+        GroepType = -2147483646
+    elif GroepTypeKeuze == 2:
+        GroepType = -2147483644
+
     print(f"Jouw keuze: {GroepTypeKeuze}")
     print("Hoeveel groepen wil je maken?")
     AantalGroepen = int(input("Voer enkel de aantal groepen in cijfers in dat je wilt maken: "))
@@ -45,7 +58,8 @@ def groepeninvoeren():
         groepen[GroepNaamID] = {
         "id": GroepNaamID,
         "naam": GroepNaam,
-        "beschrijving": GroepBeschrijving
+        "beschrijving": GroepBeschrijving,
+        "type": GroepType
     }
 
     return GroepTypeKeuze, AantalGroepen, GroepNaamID, GroepNaam, GroepBeschrijving
@@ -90,13 +104,17 @@ def GroepsConfigWijziging():
 def samenvatting():
     print(f"Jouw groepsconfiguratie:\n")
     for groep in groepen:
-        print(f"{groepen[groep]["id"]}. {groepen[groep]["naam"]} {groepen[groep]["beschrijving"]}")
+        print(f"{groepen[groep]["id"]}. {groepen[groep]["naam"]} {groepen[groep]["beschrijving"]}\n")
 
+def export_csv():
+    export_file_naam = input("Naam voor CSV bestand (ZONDER extensie, zoals example.csv),\ndit moet dus gewoon example heten: ")
 
+    with open(export_file_naam + ".csv", "w") as bestand:
+        bestand.write("cn,description,groupType\n")
+        for groep in groepen:
+            bestand.write(f"{groepen[groep]['naam']},{groepen[groep]['beschrijving']},{groepen[groep]['type']}\n")
 
 welkomscherm()
-
-
 while True:
     HM_Keuze = hoofdmenu()
     if HM_Keuze == 1:
@@ -118,3 +136,10 @@ while True:
         GroepsConfigWijziging()
     elif HM_Keuze == 3:
         samenvatting()
+    elif HM_Keuze == 4:
+        export_csv()
+    elif HM_Keuze == 5:
+        print("Programma stopt")
+        break
+    else:
+        print("Je kunt alleen kiezen tussen:")
