@@ -39,3 +39,7 @@ Een kleine AD enterprise omgeving bouwen met:
 - Directory Scripts aangemaakt
 - AD_GebruikersnaamGenerator.py script bijgewerkt V2.1
 - AD_GroepGenerator.py aangemaakt
+
+## 4-8-2026
+- AD_GroepGenerator.py wordt niet meer gebruikt, maar nog wel beschikbaar
+- Enhanced versie van AD_GroepGenerator.py (AD_GroepGenerator-Enhanced.py) gemaakt.
