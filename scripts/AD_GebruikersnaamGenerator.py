@@ -122,6 +122,69 @@ personeelsnummer = 0
 TeLangeGebruikersnamen = []
 gebruikers = []
 
+functie_groepen = {
+    "Systeem beheerder": "GG_IT-SysteemAdmins",
+    "Netwerk beheerder": "GG_IT-NetwerkAdmins",
+    "Helpdesk Technicus": "GG_IT-Helpdesk",
+    "IT Support Specialist": "GG_IT-Support",
+    "Security Analist": "GG_IT-Security",
+    "Software Engineer": "GG_IT-Developers",
+
+    "HR Manager": "GG_HR-Managers",
+    "HR Specialist": "GG_HR-Administratie",
+    "Recruiter": "GG_HR-Recruitment",
+    "HR Administrator": "GG_HR-Administratie",
+
+    "Financiele Analist": "GG_Financieel-Analisten",
+    "Accountant": "GG_Financieel-Accountants",
+    "Finance Manager": "GG_Financieel-Managers",
+    "Payroll Specialist": "GG_Financieel-Payroll",
+
+    "Sales Vertegenwoordiger": "GG_Sales-Vertegenwoordigers",
+    "Account Manager": "GG_Sales-AccountManagers",
+    "Sales Manager": "GG_Sales-Managers",
+    "Business Ontwikkeling Specialist": "GG_Sales-BusinessDevelopment",
+
+    "Marketing Specialist": "GG_Marketing-Specialisten",
+    "Content Creator": "GG_Marketing-Content",
+    "Digitale Marketing Specialist": "GG_Marketing-Digitaal",
+    "Marketing Manager": "GG_Marketing-Managers",
+
+    "CEO": "GG_Management-Directieleden",
+    "Afdelings Manager": "GG_Management-Teamleiders",
+    "Project Manager": "GG_Management-ProjectManagers",
+    "Teamleider": "GG_Management-Teamleiders",
+
+    "Operaties Manager": "GG_Operaties-Managers",
+    "Operaties Specialist": "GG_Operaties-Specialisten",
+    "Proces coordinator": "GG_Operaties-ProcesCoordinators",
+
+    "Ondersteuning Engineer": "GG_Ondersteuning-Engineers",
+    "Klanten Service Specialist": "GG_Ondersteuning-KlantenService",
+    "Technische Ondersteuning": "GG_Ondersteuning-TechnischeOndersteuning",
+
+    "Juridische Adviseur": "GG_Juridisch-Adviseurs",
+    "Compliance Officer": "GG_Juridisch-Naleving",
+    "Juridisch assistent": "GG_Juridisch-Assistenten",
+
+    "Logistiek Coordinator": "GG_Logistiek-Coordinators",
+    "Supply Chain Specialist": "GG_Logistiek-SupplyChain",
+    "Magazijn Manager": "GG_Logistiek-Warenhuis",
+
+    "Kantoor Beheerder": "GG_Administratie-KantoorManagement",
+    "Administratief Medewerker": "GG_Administratie-Assistenten",
+    "Directie Assistent": "GG_Administratie-Assistenten",
+
+    "Onderzoeks Engineer": "GG_RnD-Engineers",
+    "Product Ontwikkelaar": "GG_RnD-ProductOntwikkeling",
+    "Data Analist": "GG_RnD-DataAnalisten",
+    "R&D Specialist": "GG_RnD-Engineers"
+}
+
+afdeling_groepen = {
+    "Onderzoek en Ontwikkeling": "GG_OnderzoekEnOntwikkeling"
+}
+
 for afdeling, aantal in AfdelingsVerdeling.items():
     for _ in range(aantal):
         user_id += 1
@@ -166,7 +229,18 @@ for afdeling, aantal in AfdelingsVerdeling.items():
             aantalOnderzoekOntwikkel += 1
 
         functie = random.choice(afdelingen[afdeling])
-        gebruikers.append(f"{personeelsnummer_str},{naam},{voornaam},{achternaam},{naam},{gebruikersnaam},{email},{telnr},{afdeling},{functie}")
+        OU = afdeling
+        groepen = []
+
+        if afdeling in afdeling_groepen:
+            groepen.append(afdeling_groepen[afdeling])
+        else:
+            groepen.append(f"GG_{afdeling}")
+
+        groepen.append(functie_groepen[functie])
+        groepen_string = ";".join(groepen)
+
+        gebruikers.append(f"{personeelsnummer_str},{naam},{voornaam},{achternaam},{naam},{gebruikersnaam},{email},{telnr},{afdeling},{functie},{OU},{groepen_string}")
 
         print(f"{user_id},{personeelsnummer_str},{naam},{email},{werktelnummer()},{gebruikersnaam},{afdeling},{functie}")
 
@@ -186,6 +260,6 @@ print("----------------------------------------")
 export_file_naam = input("Naam voor CSV bestand (ZONDER extensie, zoals example.csv),\ndit moet dus gewoon example heten: ")
 
 with open (export_file_naam + ".csv", "w", encoding="utf-8-sig") as bestand:
-    bestand.write("employeeID,cn,givenName,sn,displayName,sAMAccountName,userPrincipalName,telephoneNumber,department,title\n")
+    bestand.write("employeeID,cn,givenName,sn,displayName,sAMAccountName,userPrincipalName,telephoneNumber,department,title,OU,Groups\n")
     for gebruiker in gebruikers:
         bestand.write(gebruiker + "\n")
