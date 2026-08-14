@@ -69,8 +69,28 @@ Een kleine AD enterprise omgeving bouwen met:
 --- MS Defender: Elke woensdag draait er een geplande scan
 --- MS Defender: Detectie voor mogelijk ongewenste applicaties staat ingeschakeld in 'Audit mode'
 
-# 8-8-2026
+## 8-8-2026
 - AD_GebruikersnaamGenerator.py bijgewerkt
 - Nieuwe global en domain local groups aangemaakt
 - Gebruikers verwijderd en opnieuw geïmporteerd, nu in de desbetreffende Global Groups
 - GebruikersImporteren.ps1 bijgewerkt
+
+## 14-8-2026 en last minute issue's op 15-8-2026
+- architectuur.md bijgewerkt
+- netwerk plan.md bijgewerkt
+- Afdeling share policy zo gewijzigd dat deze share ook op de desktop van de gebruiker komt als snelkoppeling
+- Afdeling share folders permissies zo gewijzigd dat de users binnen een afdeling zijn rechten heeft d.m.v. Read Write permissies
+--------------------------------------
+- BGinfo op DC01 toegevoeegd met de volgende waarden op de desktop:
+-- Computer:	<Host Name>
+-- Gebruiker:	<User Name>
+-- IP-Adres:	<IP Address>
+-- Besturings systeem:	<OS Version>
+-- Domein:	<Logon Domain>
+- Policy "SYS - BGinfo" aangemaakt
+- BGInfo-configuratie opgeslagen als Systeem informatie.bgi.
+- BGInfo centraal beschikbaar gemaakt via SYSVOL.
+- BGInfo automatisch uitgerold naar client-pc's via Group Policy Preferences.
+- BGInfo automatisch laten uitvoeren bij het aanmelden van gebruikers via een Scheduled Task.
+- BGInfo geconfigureerd zodat nieuwe gebruikers automatisch de EULA accepteren en geen bevestigingspopup krijgen.
+- BGInfo succesvol getest op een client met een nieuwe gebruikerssessie.
