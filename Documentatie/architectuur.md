@@ -5,6 +5,8 @@ DC01:
 - Active Directory
 - DNS
 - DHCP
+- File server
+- Group Policy Management
 
 CLIENT01:
 - Windows 10
