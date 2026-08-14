@@ -48,26 +48,27 @@ Een kleine AD enterprise omgeving bouwen met:
 - 600+ gebruikers in gebruikers.csv via powershell script geïmporteerd
 
 ## 7-8-2026
+
 - Ubuntu Desktop: Systeem OS geïnstalleerd
 - Ubuntu Desktop: LAN Segment NIC toegevoegd
 - Ubuntu Desktop: Machine aan AD gejoined d.m.v. realm
 - DC01: Share folder met afdeling folders aangemaakt
--- Deze folders zijn van alle afdelingen gescheiden en niet zichtbaar aan elkaar
+  - Deze folders zijn van alle afdelingen gescheiden en niet zichtbaar aan elkaar
 - DC01 - Policies geconfigureerd:
--- Share folder tonen
--- Policy "Show first sign-in animation" uitgeschakeld
--- Toegang tot configuratie scherm beperkt, afdeeling IT erft deze policy instellingen NIET
--- Screen saver timeout, na 300 seconden wordt de scherm vergrendeld
--- Verwijderbare toegang zoals USB sticks kunnen niet gebruikt worden
--- Interactieve login bericht
--- Default gast en administrator account uitgeschakeld
--- Firewall actief & MS Defender:
---- Firewall staat actief aan
---- MS Defender: Realtime protection staat aan
---- MS Defender: Cloud protection (MAPS) staat aan
---- MS Defender: 'Block at first sight' staat aan
---- MS Defender: Elke woensdag draait er een geplande scan
---- MS Defender: Detectie voor mogelijk ongewenste applicaties staat ingeschakeld in 'Audit mode'
+  - Share folder tonen
+  - Policy "Show first sign-in animation" uitgeschakeld
+  - Toegang tot configuratie scherm beperkt, afdeeling IT erft deze policy instellingen NIET
+  - Screen saver timeout, na 300 seconden wordt de scherm vergrendeld
+  - Verwijderbare toegang zoals USB sticks kunnen niet gebruikt worden
+  - Interactieve login bericht
+  - Default gast en administrator account uitgeschakeld
+  - Firewall actief & MS Defender:
+    - Firewall staat actief aan
+    - MS Defender: Realtime protection staat aan
+    - MS Defender: Cloud protection (MAPS) staat aan
+    - MS Defender: 'Block at first sight' staat aan
+    - MS Defender: Elke woensdag draait er een geplande scan
+    - MS Defender: Detectie voor mogelijk ongewenste applicaties staat ingeschakeld in 'Audit mode'
 
 ## 8-8-2026
 - AD_GebruikersnaamGenerator.py bijgewerkt
