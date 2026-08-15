@@ -23,9 +23,9 @@ Een kleine AD enterprise omgeving bouwen met:
 - CLIENT01: PC naam gewijzigd naar "CLIENT01"
 
 - Windows Server 2022: Rollen en functies toegevoegd:
--- Active Directory Domain Services
--- DHCP Server
--- DNS Server
+  - Active Directory Domain Services
+  - DHCP Server
+  - DNS Server
 - Windows Server 2022: Server gepromote naar Domain Controller
 - DC01: DHCP Scope geconfigureerd en geactiveerd. Range 192.168.100.100-150/24
 
@@ -83,11 +83,11 @@ Een kleine AD enterprise omgeving bouwen met:
 - Afdeling share folders permissies zo gewijzigd dat de users binnen een afdeling zijn rechten heeft d.m.v. Read Write permissies
 --------------------------------------
 - BGinfo op DC01 toegevoeegd met de volgende waarden op de desktop:
--- Computer:	<Host Name>
--- Gebruiker:	<User Name>
--- IP-Adres:	<IP Address>
--- Besturings systeem:	<OS Version>
--- Domein:	<Logon Domain>
+  - Computer:	<Host Name>
+  - Gebruiker:	<User Name>
+  - IP-Adres:	<IP Address>
+  - Besturings systeem:	<OS Version>
+  - Domein:	<Logon Domain>
 - Policy "SYS - BGinfo" aangemaakt
 - BGInfo-configuratie opgeslagen als Systeem informatie.bgi.
 - BGInfo centraal beschikbaar gemaakt via SYSVOL.
@@ -95,3 +95,11 @@ Een kleine AD enterprise omgeving bouwen met:
 - BGInfo automatisch laten uitvoeren bij het aanmelden van gebruikers via een Scheduled Task.
 - BGInfo geconfigureerd zodat nieuwe gebruikers automatisch de EULA accepteren en geen bevestigingspopup krijgen.
 - BGInfo succesvol getest op een client met een nieuwe gebruikerssessie.
+- Laatste policy "SEC - Wachtwoord & Lockout" aangemaakt, deze policy:
+  - Dwingt een bepaalde wachtwoord lengte ingesteld te hebben per user
+    - Password history van de laatste 3 wachtwoorden
+    - Minimum wachtwood lengte van 14 karakters
+    - Voldoen aan wachtwoord complexiteit eisen
+  - Voorkomt bruteforce pogingen na x aantal keer in te loggen binnen x aantal tijd
+    - Een account dat doelwit is van bruteforce, wordt buitengesloten voor 5 minuten
+    - Elke account heeft 5 login pogingen, pogingen meer dan 5 worden tegengehouden komende 5 minuten
